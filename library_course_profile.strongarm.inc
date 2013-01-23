@@ -89,6 +89,12 @@ function library_course_profile_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'announcements' => array(
+        'custom_settings' => FALSE,
+      ),
+      'database_link' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
