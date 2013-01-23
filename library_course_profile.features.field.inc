@@ -877,9 +877,12 @@ Prof.',
         ),
         'full' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'module' => 'ds',
+          'settings' => array(
+            'taxonomy_term_link' => 0,
+            'taxonomy_term_separator' => ', ',
+          ),
+          'type' => 'ds_taxonomy_separator',
           'weight' => '4',
         ),
         'search_result' => array(
