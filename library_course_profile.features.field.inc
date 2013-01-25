@@ -776,7 +776,7 @@ Prof.',
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => '7',
+          'weight' => 7,
         ),
         'full' => array(
           'label' => 'hidden',
