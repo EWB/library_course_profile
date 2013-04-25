@@ -95,16 +95,16 @@ function library_course_profile_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '200';
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'footable';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
     'field_course_instructor' => 'field_course_instructor',
     'field_course_code' => 'field_course_code',
   );
-  $handler->display->display_options['style_options']['default'] = 'field_course_code';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -116,14 +116,30 @@ function library_course_profile_views_default_views() {
       'empty_column' => 0,
     ),
     'field_course_code' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['summary'] = 'course listings';
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'title',
+    'hide' => array(
+      'title' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_course_instructor' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
+      'field_course_code' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
+    ),
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
