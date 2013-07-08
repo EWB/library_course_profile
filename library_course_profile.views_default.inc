@@ -97,14 +97,21 @@ function library_course_profile_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '200';
   $handler->display->display_options['style_plugin'] = 'footable';
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_course_code' => 'field_course_code',
     'title' => 'title',
     'field_course_instructor' => 'field_course_instructor',
-    'field_course_code' => 'field_course_code',
   );
-  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['default'] = 'field_course_code';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_course_code' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -115,17 +122,14 @@ function library_course_profile_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_course_code' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
   );
   $handler->display->display_options['style_options']['footable'] = array(
     'expand' => 'title',
     'hide' => array(
+      'field_course_code' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
       'title' => array(
         'phone' => 0,
         'tablet' => 0,
@@ -134,12 +138,12 @@ function library_course_profile_views_default_views() {
         'phone' => 'phone',
         'tablet' => 0,
       ),
-      'field_course_code' => array(
-        'phone' => 'phone',
-        'tablet' => 0,
-      ),
     ),
   );
+  /* Field: Content: Course Code */
+  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -165,10 +169,6 @@ function library_course_profile_views_default_views() {
     'multiple_el_al_first' => '1',
   );
   $handler->display->display_options['fields']['field_course_instructor']['delta_offset'] = '0';
-  /* Field: Content: Course Code */
-  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
-  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
-  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -256,7 +256,13 @@ function library_course_profile_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Course Code (field_course_code:format) */
+  $handler->display->display_options['sorts']['field_course_code_format']['id'] = 'field_course_code_format';
+  $handler->display->display_options['sorts']['field_course_code_format']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['sorts']['field_course_code_format']['field'] = 'field_course_code_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
