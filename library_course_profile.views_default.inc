@@ -258,6 +258,37 @@ function library_course_profile_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Course Code */
+  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['delta_offset'] = '0';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Course Title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Instructor */
+  $handler->display->display_options['fields']['field_course_instructor']['id'] = 'field_course_instructor';
+  $handler->display->display_options['fields']['field_course_instructor']['table'] = 'field_data_field_course_instructor';
+  $handler->display->display_options['fields']['field_course_instructor']['field'] = 'field_course_instructor';
+  $handler->display->display_options['fields']['field_course_instructor']['label'] = 'Instructor(s)';
+  $handler->display->display_options['fields']['field_course_instructor']['click_sort_column'] = 'title';
+  $handler->display->display_options['fields']['field_course_instructor']['settings'] = array(
+    'format' => 'default',
+    'markup' => 0,
+    'output' => 'default',
+    'multiple' => 'default',
+    'multiple_delimiter' => ', ',
+    'multiple_and' => 'text',
+    'multiple_delimiter_precedes_last' => 'never',
+    'multiple_el_al_min' => '3',
+    'multiple_el_al_first' => '1',
+  );
+  $handler->display->display_options['fields']['field_course_instructor']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Course Code (field_course_code:format) */
   $handler->display->display_options['sorts']['field_course_code_format']['id'] = 'field_course_code_format';
@@ -335,7 +366,7 @@ function library_course_profile_views_default_views() {
   $handler->display->display_options['filters']['field_course_semester_tid']['table'] = 'field_data_field_course_semester';
   $handler->display->display_options['filters']['field_course_semester_tid']['field'] = 'field_course_semester_tid';
   $handler->display->display_options['filters']['field_course_semester_tid']['value'] = array(
-    40 => '40',
+    41 => '41',
   );
   $handler->display->display_options['filters']['field_course_semester_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_course_semester_tid']['expose']['operator_id'] = 'field_course_semester_tid_op';
